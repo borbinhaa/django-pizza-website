@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load myfilter %}
+
+{% block title %}Carrinho{% endblock %}
+
+{% block content %}
+<main>
+    <section class="main-section">
+        <h2 class="main-section-title">Carrinho</h2>
+        {% if carrinho %}
+
+        <table class="car-table">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Sabores</th>
+                    <th>Quantidade</th>
+                    <th>Remover</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td>Total:</td>
+                    <td colspan="4" style="text-align: right;">{{ total|money }}</td>
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for item in carrinho.values %}
+                <tr>
+                    <td>{{ item.tamanho }}</td>
+                    <td>{{ item.sabor }}</td>
+                    <td>{{ item.quantidade }}</td>
+                    <td><a href="{% url 'pedido:removerdocarrinho' %}?vid={{ item.sabor }}"><i
+                                class="fas fa-minus-circle red-button"></i></a></td>
+                    <td>{{ item.preco|money }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a class="submit-button" href="{% url 'pedido:confirmarpedido' %}">Fazer Pedido</a>
+
+        {% else %}
+        <h3 class="main-section-subtitle">Carrinho Vazio.</h3>
+        <p>Favor adicionar items ao carrinho.</p>
+        {% endif %}
+    </section>
+</main>
+
+{% endblock %}

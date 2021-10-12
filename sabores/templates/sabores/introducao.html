@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Pizzaria{% endblock title %}
+
+{% block content %}
+<main>
+    <section class="main-section">
+        <h2 class="main-section-title">Venha pedir sua pizza conosco!</h2>
+
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates magnam odit alias est reiciendis
+            architecto quibusdam illo. Voluptatum explicabo, autem qui fuga, quasi laudantium sunt corporis quis
+            unde quisquam cupiditate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid porro minus
+            assumenda sunt corrupti maiores! Exercitationem beatae, quae alias atque, explicabo quibusdam modi velit
+            consequuntur ut aspernatur hic. Sed, ipsum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates magnam odit alias est reiciendis
+            architecto quibusdam illo. Voluptatum explicabo, autem qui fuga, quasi laudantium sunt corporis quis
+            unde quisquam cupiditate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid porro minus
+            assumenda sunt corrupti maiores! Exercitationem beatae, quae alias atque, explicabo quibusdam modi velit
+            consequuntur ut aspernatur hic. Sed, ipsum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates magnam odit alias est reiciendis
+            architecto quibusdam illo. Voluptatum explicabo, autem qui fuga, quasi laudantium sunt corporis quis
+            unde quisquam cupiditate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid porro minus
+            assumenda sunt corrupti maiores! Exercitationem beatae, quae alias atque, explicabo quibusdam modi velit
+            consequuntur ut aspernatur hic. Sed, ipsum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates magnam odit alias est reiciendis
+            architecto quibusdam illo. Voluptatum explicabo, autem qui fuga, quasi laudantium sunt corporis quis
+            unde quisquam cupiditate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid porro minus
+            assumenda sunt corrupti maiores! Exercitationem beatae, quae alias atque, explicabo quibusdam modi velit
+            consequuntur ut aspernatur hic. Sed, ipsum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates magnam odit alias est reiciendis
+            architecto quibusdam illo. Voluptatum explicabo, autem qui fuga, quasi laudantium sunt corporis quis
+            unde quisquam cupiditate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid porro minus
+            assumenda sunt corrupti maiores! Exercitationem beatae, quae alias atque, explicabo quibusdam modi velit
+            consequuntur ut aspernatur hic. Sed, ipsum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates magnam odit alias est reiciendis
+            architecto quibusdam illo. Voluptatum explicabo, autem qui fuga, quasi laudantium sunt corporis quis
+            unde quisquam cupiditate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid porro minus
+            assumenda sunt corrupti maiores! Exercitationem beatae, quae alias atque, explicabo quibusdam modi velit
+            consequuntur ut aspernatur hic. Sed, ipsum.</p>
+    </section>
+
+    <section class="main-section">
+        <h2 class="main-section-title">Nossas Maravilhosas Pizzas!</h2>
+
+        <div class="row">
+            <div class="col col-pizza">
+                <a href="{% url 'pedido:fazerpedido' %}" class="pizza-card">
+                    <img src="{% static '/img/portuguese_pizza.jpg' %}"
+                        alt="Uma foto da nossa deliciosa pizza sabor portuguesa">
+                </a>
+                <a href="{% url 'pedido:fazerpedido' %}" class="ask-pizza">Peca já</a>
+
+                <a href="{% url 'pedido:fazerpedido' %}" class="pizza-card">
+                    <img src="{% static '/img/margherita_pizza.jpg' %}"
+                        alt="Uma foto da nossa deliciosa pizza sabor margherita">
+                </a>
+                <a href="{% url 'pedido:fazerpedido' %}" class="ask-pizza">Peca já</a>
+            </div>
+            <div class="col col-pizza">
+                <a href="{% url 'pedido:fazerpedido' %}" class="pizza-card">
+                    <img src="{% static '/img/pepperoni_pizza.jpg' %}"
+                        alt="Uma foto da nossa deliciosa pizza sabor pepperoni">
+                </a>
+                <a href="{% url 'pedido:fazerpedido' %}" class="ask-pizza">Peca já</a>
+
+                <a href="{% url 'pedido:fazerpedido' %}" class="pizza-card">
+                    <img src="{% static '/img/sweet_pizza.jpg' %}"
+                        alt="Uma foto da nossa deliciosa pizza sabor chocolate branco com morango">
+                </a>
+                <a href="{% url 'pedido:fazerpedido' %}" class="ask-pizza">Peça já</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock content %}

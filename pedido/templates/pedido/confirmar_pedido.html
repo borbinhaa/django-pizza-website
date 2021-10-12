@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load myfilter %}
+
+{% block title %}Confirmar Pedido{% endblock %}
+
+{% block content %}
+<main>
+    <section class="main-section">
+        <h2 class="main-section-title">Carrinho</h2>
+
+        <table class="car-table">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Sabores</th>
+                    <th>Quantidade</th>
+                    <th>Remover</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td>Total:</td>
+                    <td colspan="4" style="text-align: right;">{{ total|money }}</td>
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for item in carrinho.values %}
+                <tr>
+                    <td>{{ item.tamanho }}</td>
+                    <td>{{ item.sabor }}</td>
+                    <td>{{ item.quantidade }}</td>
+                    <td><a href="{% url 'pedido:removerdocarrinho' %}?vid={{ item.sabor }}"><i
+                                class="fas fa-minus-circle red-button"></i></a></td>
+                    <td>{{ item.preco|money }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2 class="main-section-title">Selecionar Endereço de Entrega</h2>
+
+        <form action="#" method="POST">
+            {% csrf_token %}
+
+            <div class="row">
+                {% for endereco in enderecos %}
+                <div class="col col1-3 address-box">
+                    <address>
+                        <label for="endereco{{ endereco.id }}">
+                            <span class="hidden">Endereço</span>
+                            Rua {{ endereco.rua }}, número {{ endereco.numero }}
+                        </label>
+
+                        <p>
+                            {{ endereco.cidade }}, {{ endereco.estado }}
+                        </p>
+                        <input type="radio" id="endereco{{ endereco.id }}" name="endereco" value="{{endereco.id}}">
+                    </address>
+                </div>
+                {% endfor %}
+            </div>
+
+            <input class="submit-button" type="submit" value="Fazer Pedido">
+
+        </form>
+
+    </section>
+</main>
+
+{% endblock %}

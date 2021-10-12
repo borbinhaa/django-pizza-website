@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Cadastre-se{% endblock %}
+
+{% block content %}
+
+<main>
+    <section class="main-section">
+        <h2 class="main-section-title">Cadastro</h2>
+
+        <form action="#" method="POST" class="login-form">
+            {% csrf_token %}
+            {{ userform|crispy }}
+            {{ perfilform|crispy }}
+            {{ enderecoform|crispy }}
+            <input class="submit-button" type="submit" value="Cadastre-se">
+        </form>
+    </section>
+</main>
+
+{% endblock %}

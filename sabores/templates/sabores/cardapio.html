@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Cardapio{% endblock title %}
+
+{% block content %}
+<section class="main-section">
+    <h2 class="main-section-title">Cardápio</h2>
+
+    <h3 class="main-section-subtitle">Veja nossas deliciosas pizzas feitas com carinho pelos nossos chefes
+        italianos.</h3>
+
+    <div class="pizza-categories">
+        <h4 class="pizza-categories-title">Salgados</h4>
+    </div>
+
+    {% for sabor_salgado in sabores_salgados %}
+    <div class="cardapio-card">
+        <a href="{% url 'pedido:fazerpedido' %}"><img src="{{ sabor_salgado.imagem.url }}"
+                alt="Uma foto da nossa deliciosa pizza sabor {{ sabor_salgado.nome_sabor }}"></a>
+        <h4>{{ sabor_salgado.nome_sabor }}</h4>
+        <p>{{ sabor_salgado.descricao_sabor }}</p>
+        <a href="{% url 'pedido:fazerpedido' %}" class="ask-pizza">Peça já</a>
+    </div>
+    {% endfor %}
+
+    <div class="pizza-categories pizza-categories-margin-top">
+        <h4 class="pizza-categories-title">Doces</h4>
+    </div>
+
+    {% for sabor_doce in sabores_doces %}
+    <div class="cardapio-card">
+        <img src="{{ sabor_doce.imagem.url }}"
+            alt="Uma foto da nossa deliciosa pizza sabor {{ sabor_doce.nome_sabor }}">
+        <h4>{{ sabor_doce.nome_sabor }}</h4>
+        <p>{{ sabor_doce.descricao_sabor }}</p>
+        <a href="{% url 'pedido:fazerpedido' %}" class="ask-pizza">Peça já</a>
+    </div>
+    {% endfor %}
+
+
+</section>
+
+{% endblock content %}

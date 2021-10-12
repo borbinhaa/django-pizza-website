@@ -1,0 +1,25 @@
+<header class="main-header row">
+    <h1 class="main-header-logo col col1-3"><a href="{% url 'sabores:introducao' %}" class="logo"><i
+                class="fas fa-pizza-slice"></i>Pizza's</a>
+    </h1>
+    <nav class="main-header-nav col col2-3">
+        <ul>
+            {% if not request.user.is_authenticated %}
+            <li><a href="{% url 'sabores:cardapio' %}">Cardápio</a></li>
+            <li><a href="{% url 'loja:lojas' %}">Lojas</a></li>
+            <li><a href="{% url 'perfil:login' %}">Fazer Login</a></li>
+            <li><a href="{% url 'perfil:cadastro' %}">Cadastre-se</a></li>
+            <li><a href="{% url 'pedido:carrinho' %}"><i class="fas fa-shopping-cart"></i> Carrinho</a></li>
+            {% else %}
+            <li><a href="{% url 'sabores:cardapio' %}">Cardápio</a></li>
+            <li><a href="{% url 'loja:lojas' %}">Lojas</a></li>
+            <li><a href="{% url 'pedido:meuspedidos' %}">Meus Pedidos</a></li>
+            <li><a href="{% url 'perfil:perfil' %}">{{ request.user|title }}</a></li>
+            <li><a href="{% url 'pedido:carrinho' %}"><i class="fas fa-shopping-cart"></i> Carrinho</a></li>
+            <li><a href="{% url 'perfil:logout' %}">Logout</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+
+<div class="header-space"></div>

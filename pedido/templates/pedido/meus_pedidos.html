@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load myfilter %}
+
+{% block title %}Meus Pedidos{% endblock %}
+
+{% block content %}
+<main>
+    <section class="main-section">
+        <h2 class="main-section-title">Pedidos Feitos</h2>
+        {% if pedidos %}
+        <table class="car-table">
+            <thead>
+                <tr>
+                    <th>Sabores</th>
+                    <th>Endereço</th>
+                    <th>Data</th>
+                    <th>Status</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pedido in pedidos %}
+                <tr>
+                    <td>
+                        {% for item in pedido.itempedido_set.all %}
+                        {{ item.sabor }};
+                        {% endfor %}
+                    </td>
+                    <td>Rua {{ pedido.endereco }}</td>
+                    <td>{{ pedido.data }}</td>
+                    <td>{{ pedido.get_status_display }}</td>
+                    <td>{{ pedido.total|money }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>Você ainda não fez pedidos.</p>
+        {% endif %}
+
+    </section>
+</main>
+{% endblock %}

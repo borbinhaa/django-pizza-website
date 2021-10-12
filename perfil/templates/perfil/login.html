@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<main>
+    <section class="main-section">
+        <h2 class="main-section-title">Login</h2>
+
+        <form action="#" method="POST" class="login-form">
+            {% csrf_token %}
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario">
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password">
+
+            <div class="row">
+                <a href="{% url 'perfil:cadastro' %}" class="submit-button col col-pizza">Cadastre-se</a>
+                <input class="submit-button col col-pizza" type="submit" value="Login">
+            </div>
+        </form>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Meu Perfil{% endblock %}
+
+{% block content %}
+<main>
+    <section class="main-section">
+        <h2 class="main-section-title">Meu Perfil</h2>
+
+        <form action="#" method="POST" class="login-form">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col col-pizza">
+                    <label for="user">User:</label>
+                    <input class="read" type="text" id="user" name="user" value="{{ user }}" readonly>
+
+                    <label for="name">Nome:</label>
+                    <input class="read" type="text" id="name" name="name" value="{{ user.first_name }}" readonly>
+
+                    <label for="idade">Idade:</label>
+                    <input class="read" type="text" id="idade" name="idade" value="{{ perfil.idade }}" readonly>
+                </div>
+                <div class="col col-pizza">
+                    <label for="email">Email:</label>
+                    <input class="read" type="email" id="email" name="email" value="{{ user.email }}" readonly>
+
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input class="read" type="text" id="sobrenome" name="sobrenome" value="{{ user.last_name }}"
+                        readonly>
+
+                    <label for="cpf">CPF:</label>
+                    <input class="read" type="text" id="cpf" name="cpf" value="{{ perfil.cpf }}" readonly>
+                </div>
+            </div>
+        </form>
+
+    </section>
+    <section class="stores main-section">
+        <h2 class="main-section-title">Meus Endereços.</h2>
+
+        <div class="row">
+            {% for endereco in perfil.endereco_set.all %}
+            <div class="col col1-3">
+                <address>
+                    <p>
+                        <span class="hidden">Endereço</span>
+                        Rua {{ endereco.rua }}, número {{ endereco.numero }}, {{ endereco.complemento }}
+                    </p>
+
+                    <p>
+                        {{ endereco.cidade }}, {{ endereco.estado }}
+                    </p>
+                </address>
+            </div>
+            {% endfor %}
+        </div>
+
+        <a class="submit-button" href="{% url 'perfil:add_endereco' %}">Adicionar Endereço</a>
+
+    </section>
+
+</main>
+
+{% endblock %}

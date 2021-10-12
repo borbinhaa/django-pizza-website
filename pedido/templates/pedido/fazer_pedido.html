@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load myfilter %}
+
+{% block title %}Fazer Pedido{% endblock %}
+
+{% block content %}
+<main>
+    <section class="main-section">
+        <h2 class="main-section-title">Faça seu pedido</h2>
+
+
+        <form action="#" class="pizza-form" method="POST">
+            {% csrf_token %}
+            <ul class="pizza-form-list">
+                <li class="pizza-styles">
+                    <i class="fas fa-pizza-slice"></i>Pizza Grande
+                    <ul>
+                        <li class="row">
+                            <label class="col col1-3" for="pizza-grande-2">2 sabores</label>
+                            <input class="col col1-3" type="radio" id="pizza-grande-2" name="size"
+                                value="pizza-grande-2">
+                        </li>
+                        <li class="row">
+                            <label class="col col1-3" for="pizza-grande-1">1 sabor</label>
+                            <input class="col col1-3" type="radio" id="pizza-grande-1" name="size"
+                                value="pizza-grande-1">
+                        </li>
+                    </ul>
+                </li>
+                <li class="pizza-styles">
+                    <i class="fas fa-pizza-slice"></i>Pizza Média
+                    <ul>
+                        <li class="row">
+                            <label class="col col1-3" for="pizza-media-2">2 sabores</label>
+                            <input class="col col1-3" type="radio" id="pizza-media-2" name="size" value="pizza-media-2">
+                        </li>
+                        <li class="row">
+                            <label class="col col1-3" for="pizza-media-1">1 sabor</label>
+                            <input class="col col1-3" type="radio" id="pizza-media-1" name="size" value="pizza-media-1">
+                        </li>
+                    </ul>
+                </li>
+                <li class="pizza-styles">
+                    <i class="fas fa-pizza-slice"></i>Pizza Pequena
+                    <ul>
+                        <li class="row">
+                            <label class="col col1-3" for="pizza-pequena-2">2 sabores</label>
+                            <input class="col col1-3" type="radio" id="pizza-pequena-2" name="size"
+                                value="pizza-pequena-2">
+                        </li>
+                        <li class="row">
+                            <label class="col col1-3" for="pizza-pequena-1">1 sabor</label>
+                            <input class="col col1-3" type="radio" id="pizza-pequena-1" name="size"
+                                value="pizza-pequena-1">
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="pizza-categories">
+                <h3 class="pizza-categories-title">Salgados</h3>
+            </div>
+
+            <table class="pizza-table car-table">
+                <thead>
+                    <tr>
+                        <th>Sabores</th>
+                        <th>Pizza Grande</th>
+                        <th>Pizza Média</th>
+                        <th>Pizza Pequena</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sabor_salgado in sabores_salgados %}
+                    <tr>
+                        <td>{{ sabor_salgado.nome_sabor }}</td>
+                        <td>{{ sabor_salgado.preco_grande|money }}</td>
+                        <td>{{ sabor_salgado.preco_medio|money }}</td>
+                        <td>{{ sabor_salgado.preco_pequeno|money }}</td>
+                        <td><input class="check" type="checkbox" name="sabor-{{ sabor_salgado.nome_sabor }}"
+                                value="{{ sabor_salgado.id }}"></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="pizza-categories pizza-categories-margin-top">
+                <h3 class="pizza-categories-title">Doces</h3>
+            </div>
+
+            <table class="pizza-table car-table">
+                <thead>
+                    <tr>
+                        <th>Sabores</th>
+                        <th>Pizza Grande</th>
+                        <th>Pizza Média</th>
+                        <th>Pizza Pequena</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sabor_doce in sabores_doces %}
+                    <tr>
+                        <td>{{ sabor_doce.nome_sabor }}</td>
+                        <td>{{ sabor_doce.preco_grande|money }}</td>
+                        <td>{{ sabor_doce.preco_medio|money }}</td>
+                        <td>{{ sabor_doce.preco_pequeno|money }}</td>
+                        <td><input type="checkbox" name="sabor-{{ sabor_doce.nome_sabor }}" value="{{ sabor_doce.id }}">
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <input class="submit-button" type="submit" value="Fazer Pedido">
+
+        </form>
+
+
+    </section>
+</main>
+
+{% endblock %}
