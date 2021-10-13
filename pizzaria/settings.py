@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 from django.contrib.messages import constants
+from . import secret_datas
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'r$*graazto85got^siee2*0e*zdv1ht!0j0lw$9+ze2&b^gq@z'
+SECRET_KEY = secret_datas.secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
