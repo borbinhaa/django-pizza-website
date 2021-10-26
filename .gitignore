@@ -5,7 +5,6 @@
 ### Local ###
 coisas_a_fazer.txt
 teste.py
-pizzaria/secret_datas.py
 
 ### Django ###
 *.log
