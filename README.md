@@ -42,11 +42,13 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-- Now some parts of the website you need to complete, It is necessary to do the flavors and add the stores address. To do that:
+- Some parts of the website you need to complete, It is necessary to do the flavors and add the stores address. To do that, first, you need to create your admin user:
 
 ```
 python manage.py createsuperuser
-http://127.0.0.1:8000/admin/
 ```
+
+- After run on your browser http://127.0.0.1:8000/admin/
+  and add your flavors and stores.
 
 Hope you enjoy!
