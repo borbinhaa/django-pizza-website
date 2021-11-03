@@ -48,7 +48,7 @@ python manage.py runserver
 python manage.py createsuperuser
 ```
 
-- After run on your browser http://127.0.0.1:8000/admin/
+- After, run on your browser http://127.0.0.1:8000/admin/
   and add your flavors and stores.
 
 Hope you enjoy!
